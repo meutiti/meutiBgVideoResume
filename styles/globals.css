@@ -1,10 +1,17 @@
-@import url('https://fonts.googleapis.com/css?family=Poppins:200,300,400,500,600,700,800,900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Abel&family=Secular+One&display=swap');
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
-  font-family: 'Poppins', sans-serif;
+  font-family: 'Abel', sans-serif;
 }
+
+h2,
+h3,
+h4 {
+  font-family: 'Secular One', sans-serif;
+}
+
 header {
   position: absolute;
   top: 0;
@@ -76,11 +83,16 @@ header .logo {
 .text {
   position: relative;
   z-index: 10;
+  color: white;
+}
+
+.intro {
+  margin-top: 60px;
 }
 
 .text h2 {
   font-size: 5em;
-  font-weight: 800;
+  font-weight: 700;
   color: #fff;
   line-height: 1em;
   text-transform: uppercase;
@@ -92,8 +104,15 @@ header .logo {
   line-height: 1em;
   text-transform: uppercase;
 }
+.text h4 {
+  font-size: 1.6em;
+  font-weight: 500;
+  color: #fff;
+  line-height: 1em;
+  text-transform: uppercase;
+}
 .text p {
-  font-size: 1.1em;
+  font-size: 1.4em;
   color: #fff;
   margin: 20px 0;
   font-weight: 400;
