@@ -3,20 +3,26 @@ import { useState, Fragment } from 'react'
 import Image from 'next/image'
 import styles from '../styles/Home.module.css'
 import Switch from 'react-switch'
-import { Flex } from '@chakra-ui/react'
+import { Flex, Tooltip } from '@chakra-ui/react'
 import { MdDarkMode } from 'react-icons/md'
 import { BiSun } from 'react-icons/bi'
+import { AiOutlineInstagram } from 'react-icons/Ai'
+import useMountedBreakpoints from '../hooks/useMountedBreakpoints'
 
 const VIDEOS_MAP = {
   dark: './meuti-zzz_encoded.webm',
+  dark_mobile: './meuti-zzz-mobile_encoded.webm',
   light: './meuti-qhd_encoded.webm',
 }
 
 export default function Home() {
   const [isDarkMode, setIsDarkMode] = useState(false)
-
+  const isMobile = useMountedBreakpoints({ base: true, md: false }, false)
   const handleDarkMode = () => setIsDarkMode(!isDarkMode)
-  const videoSrc = (isDarkMode && VIDEOS_MAP.dark) || VIDEOS_MAP.light
+  const videoSrc =
+    (isMobile && isDarkMode && VIDEOS_MAP.dark_mobile) ||
+    (isDarkMode && VIDEOS_MAP.dark) ||
+    VIDEOS_MAP.light
 
   return (
     <>
@@ -27,17 +33,19 @@ export default function Home() {
           </h2>
           {/* <div className="toggle"></div> */}
           <Flex align="center" as="label" htmlFor="switch-dark-mode">
-            <BiSun color="white" />
+            <BiSun color="white" size="30px" />
             <Flex mx="2">
               <Switch
                 id="switch-dark-mode"
                 onChange={handleDarkMode}
                 checked={isDarkMode}
                 uncheckedIcon={false}
+                onColor="#9fc332"
+                offColor="#303030"
                 checkedIcon={false}
               />
             </Flex>
-            <MdDarkMode color="white" />
+            <MdDarkMode color="white" size="30px" />
           </Flex>
         </header>
         <video src={videoSrc} muted loop autoPlay></video>
@@ -60,13 +68,11 @@ export default function Home() {
             </p>
           </div>
         </div>
-        <ul className="social">
-          <li>
-            <a href="https://www.instagram.com/meutidoes3d/" target="_blank">
-              <img src="https://i.ibb.co/ySwtH4B/instagram.png" />
-            </a>
-          </li>
-        </ul>
+        <Flex align="center" className="social">
+          <a href="https://www.instagram.com/meutidoes3d/" target="_blank">
+            <AiOutlineInstagram color="white" size="30px" />
+          </a>
+        </Flex>
       </section>
       {/* <div className="menu">
         <ul>
