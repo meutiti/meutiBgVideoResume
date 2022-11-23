@@ -13,7 +13,7 @@ const VIDEOS_MAP = {
 }
 
 export default function Home() {
-  const [isDarkMode, setIsDarkMode] = useState(true)
+  const [isDarkMode, setIsDarkMode] = useState(false)
 
   const handleDarkMode = () => setIsDarkMode(!isDarkMode)
   const videoSrc = (isDarkMode && VIDEOS_MAP.dark) || VIDEOS_MAP.light
