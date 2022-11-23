@@ -6,7 +6,7 @@ import Switch from 'react-switch'
 import { Flex, Tooltip } from '@chakra-ui/react'
 import { MdDarkMode } from 'react-icons/md'
 import { BiSun } from 'react-icons/bi'
-import { AiOutlineInstagram } from 'react-icons/Ai'
+import { AiOutlineInstagram } from 'react-icons/ai'
 import useMountedBreakpoints from '../hooks/useMountedBreakpoints'
 
 const VIDEOS_MAP = {
