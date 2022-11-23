@@ -29,7 +29,12 @@ export default function Home() {
       <section className="showcase">
         <header>
           <h2 className="logo">
-            <img src="./logo.png" alt="logo" width="120px" height="120px" />
+            <img
+              src="./logo.png"
+              alt="logo"
+              width={isMobile ? '60px' : '120px'}
+              height={isMobile ? '60px' : '120px'}
+            />
           </h2>
           {/* <div className="toggle"></div> */}
           <Flex align="center" as="label" htmlFor="switch-dark-mode">
