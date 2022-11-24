@@ -13,6 +13,7 @@ import {
   SiNextdotjs,
   SiBlender,
   SiChakraui,
+  SiAdobeillustrator,
 } from 'react-icons/si'
 import { AiOutlineInstagram } from 'react-icons/ai'
 import useMountedBreakpoints from '../hooks/useMountedBreakpoints'
@@ -175,6 +176,7 @@ export default function Home() {
           <SiChakraui color="#4F9594" size="30px" />
           <SiNextdotjs color={isDarkMode ? 'white' : 'white'} size="30px" />
           <SiBlender color={isDarkMode ? 'white' : 'white'} size="30px" />
+          <SiAdobeillustrator color="#ecc649" size="30px" />
           <a href="https://www.instagram.com/meutidoes3d/" target="_blank">
             <AiOutlineInstagram color="white" size="35px" />
           </a>
