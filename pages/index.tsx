@@ -3,11 +3,20 @@ import { useState, Fragment } from 'react'
 import Image from 'next/image'
 import styles from '../styles/Home.module.css'
 import Switch from 'react-switch'
-import { Flex, Tooltip } from '@chakra-ui/react'
+import { Button, Box, Flex, Heading, Text, Tooltip } from '@chakra-ui/react'
 import { MdDarkMode } from 'react-icons/md'
 import { BiSun } from 'react-icons/bi'
+import { FaReact } from 'react-icons/fa'
+import { TiHeartFullOutline } from 'react-icons/ti'
+import {
+  SiTypescript,
+  SiNextdotjs,
+  SiBlender,
+  SiChakraui,
+} from 'react-icons/si'
 import { AiOutlineInstagram } from 'react-icons/ai'
 import useMountedBreakpoints from '../hooks/useMountedBreakpoints'
+import Link from 'next/link'
 
 const VIDEOS_MAP = {
   dark: './meuti-zzz_encoded.webm',
@@ -26,59 +35,151 @@ export default function Home() {
 
   return (
     <>
-      <section className="showcase">
+      <Flex
+        as="section"
+        className="showcase"
+        bgColor={isDarkMode ? '#2c2c2c' : '#000'}
+      >
         <header>
-          <h2 className="logo">
-            <img
-              src="./logo.png"
+          <Link href="/">
+            <Image
+              src="/logo.png"
               alt="logo"
-              width={isMobile ? '60px' : '120px'}
-              height={isMobile ? '60px' : '120px'}
+              width={isMobile ? 60 : 80}
+              height={isMobile ? 60 : 80}
             />
-          </h2>
-          {/* <div className="toggle"></div> */}
-          <Flex align="center" as="label" htmlFor="switch-dark-mode">
-            <BiSun color="white" size="30px" />
-            <Flex mx="2">
-              <Switch
-                id="switch-dark-mode"
-                onChange={handleDarkMode}
-                checked={isDarkMode}
-                uncheckedIcon={false}
-                onColor="#9fc332"
-                offColor="#303030"
-                checkedIcon={false}
-              />
+          </Link>
+          <Flex align="center" justify="flex-end" gap="6">
+            <Flex align="center">
+              <Button
+                size="xs"
+                onClick={() => console.log('mail')}
+                variant="secondaryW"
+                boxShadow="0px 1px 0px #00000052"
+              >
+                <Text textShadow="0px 1px 0px #00000052" color="white">
+                  Me contacter
+                </Text>
+              </Button>
             </Flex>
-            <MdDarkMode color="white" size="30px" />
+            <Flex align="center" as="label" htmlFor="switch-dark-mode">
+              <BiSun color="white" size="18px" />
+              <Flex mx="2">
+                <Switch
+                  id="switch-dark-mode"
+                  onChange={handleDarkMode}
+                  checked={isDarkMode}
+                  uncheckedIcon={false}
+                  onColor="#9fc332"
+                  offColor="#5a5a5a"
+                  checkedIcon={false}
+                  width={28}
+                  height={14}
+                  handleDiameter={10}
+                />
+              </Flex>
+              <MdDarkMode color="white" size="18px" />
+            </Flex>
           </Flex>
         </header>
         <video src={videoSrc} muted loop autoPlay></video>
 
-        {/* <div className="overlay"></div> */}
-        <div className="text">
-          <h2>Timothée</h2>
-          <h3>Front-End Developer</h3>
-          <h4>React & React Native</h4>
-          <div className="intro">
-            <p>
+        <Flex direction="column" position="relative">
+          <Heading
+            as="h1"
+            textShadow="0px 1px 0px #00000052"
+            size={['md', 'xl']}
+            color="white"
+          >
+            Timothée B.
+          </Heading>
+          <Heading
+            as="h2"
+            textShadow="0px 1px 0px #00000052"
+            color="white"
+            size={['sm', 'md']}
+          >
+            Front-End Developer
+          </Heading>
+          <Flex position="relative" width="fit-content">
+            {/* <Box
+              position="absolute"
+              background="white"
+              bottom="0px"
+              height="6px"
+              width="100%"
+              zIndex={0}
+            /> */}
+            <Text
+              size={['sm', 'lg']}
+              textShadow="0px 1px 0px #00000052"
+              mt="1.5"
+              as="h3"
+              color="white"
+              width="fit-content"
+              zIndex={1}
+            >
+              React & React Native
+            </Text>
+          </Flex>
+          <Flex mt="8" direction="column">
+            <Text
+              size={['md', 'lg']}
+              color="white"
+              width="min(100% - 2rem, 800px)"
+              textShadow="0px 1px 0px #00000052"
+            >
               Touche à tout et féru de design avec une grosse passion pour la
               modélisation 3D, j'aime voir les features prendre vie et faire
-              naître de nouvelles choses grâce au code. <br /> <br /> Mon
-              parcours est orienté SASS web & mobile, mais je suis toujours
+              naître de nouvelles choses grâce au code.
+            </Text>
+            <Text
+              size={['md', 'lg']}
+              mt="3"
+              color="white"
+              width="min(100% - 2rem, 800px)"
+              textShadow="0px 1px 0px #00000052"
+            >
+              Mon parcours est orienté SASS web & mobile, mais je suis toujours
               curieux de voir et d'apprendre sur des sujets différents.
-              <br /> <br />
-              J'ai un coup de ❤️ pour les boites early stage car il y a tout à
-              construire avec l'envie de bien faire.
-            </p>
-          </div>
-        </div>
-        <Flex align="center" className="social">
+            </Text>
+            <Text
+              size={['md', 'lg']}
+              mt="3"
+              color="white"
+              width="min(100% - 2rem, 800px)"
+              textShadow="0px 1px 0px #00000052"
+            >
+              J'ai un coup de
+              <Text as="span" mx="1">
+                <TiHeartFullOutline
+                  style={{ display: 'inline' }}
+                  size="20px"
+                  color="#ff3357"
+                />
+              </Text>
+              pour les boites early stage car il y a tout à construire avec
+              l'envie de bien faire.
+            </Text>
+          </Flex>
+        </Flex>
+        <Flex
+          align="center"
+          position="absolute"
+          zIndex={10}
+          bottom="60px"
+          gap="4"
+        >
+          <FaReact color="#80D8F7" size="30px" />
+          <SiTypescript color="#4178C0" size="30px" />
+          <SiChakraui color="#4F9594" size="30px" />
+          <SiNextdotjs color={isDarkMode ? 'white' : 'white'} size="30px" />
+          <SiBlender color={isDarkMode ? 'white' : 'white'} size="30px" />
           <a href="https://www.instagram.com/meutidoes3d/" target="_blank">
-            <AiOutlineInstagram color="white" size="30px" />
+            <AiOutlineInstagram color="white" size="35px" />
           </a>
         </Flex>
-      </section>
+      </Flex>
       {/* <div className="menu">
         <ul>
           <li>

@@ -1,9 +1,7 @@
-@import url('https://fonts.googleapis.com/css2?family=Abel&family=Secular+One&display=swap');
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
-  font-family: 'Abel', sans-serif;
 }
 
 h2,
@@ -54,7 +52,6 @@ header .logo {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  background: #111;
   transition: 0.5s;
   z-index: 2;
 }
@@ -71,23 +68,11 @@ header .logo {
   object-fit: cover;
   opacity: 0.8;
 }
-.overlay {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  /* background: #ecf4f8; */
-  /* mix-blend-mode: overlay; */
-}
+
 .text {
   position: relative;
   z-index: 10;
   color: white;
-}
-
-.intro {
-  margin-top: 60px;
 }
 
 .text h2 {
@@ -183,12 +168,6 @@ header .logo {
 @media (max-width: 991px) {
   .showcase,
   .showcase header {
-    padding: 40px;
-  }
-  .text h2 {
-    font-size: 3em;
-  }
-  .text h3 {
-    font-size: 2em;
+    padding: 1.8rem 2rem;
   }
 }
