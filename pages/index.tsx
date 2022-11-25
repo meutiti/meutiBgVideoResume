@@ -1,5 +1,5 @@
 import Head from 'next/head'
-import { useState, Fragment } from 'react'
+import { useState, Fragment, useEffect } from 'react'
 import Image from 'next/image'
 import styles from '../styles/Home.module.css'
 import Switch from 'react-switch'
@@ -34,6 +34,14 @@ export default function Home() {
     (isMobile && isDarkMode && VIDEOS_MAP.dark_mobile) ||
     (isDarkMode && VIDEOS_MAP.dark) ||
     VIDEOS_MAP.light
+
+  useEffect(() => {
+    if (typeof window !== 'undefined') {
+      let vh = window.innerHeight * 0.01
+      // Then we set the value in the --vh custom property to the root of the document
+      document.documentElement.style.setProperty('--vh', `${vh}px`)
+    }
+  }, [])
 
   return (
     <>
