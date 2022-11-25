@@ -18,6 +18,7 @@ import {
 import { AiOutlineInstagram } from 'react-icons/ai'
 import useMountedBreakpoints from '../hooks/useMountedBreakpoints'
 import Link from 'next/link'
+import ContactFormMenu from '../components/ContactFormMenu'
 
 const VIDEOS_MAP = {
   dark: './meuti-zzz_encoded.webm',
@@ -51,18 +52,7 @@ export default function Home() {
             />
           </Link>
           <Flex align="center" justify="flex-end" gap="6">
-            <Flex align="center">
-              <Button
-                size="xs"
-                onClick={() => console.log('mail')}
-                variant="secondaryW"
-                boxShadow="0px 1px 0px #00000052"
-              >
-                <Text textShadow="0px 1px 0px #00000052" color="white">
-                  Me contacter
-                </Text>
-              </Button>
-            </Flex>
+            <ContactFormMenu />
             <Flex align="center" as="label" htmlFor="switch-dark-mode">
               <BiSun color="white" size="18px" />
               <Flex mx="2">
