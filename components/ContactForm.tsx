@@ -1,4 +1,11 @@
-import { Container, Flex, MenuList, BoxProps } from '@chakra-ui/react'
+import {
+  Container,
+  Text,
+  Heading,
+  Flex,
+  MenuList,
+  BoxProps,
+} from '@chakra-ui/react'
 import { FC } from 'react'
 
 const ContactForm: FC<BoxProps> = () => {
@@ -10,7 +17,11 @@ const ContactForm: FC<BoxProps> = () => {
       p={{ base: 5, md: '8' }}
       mt="4"
     >
-      <Flex>coucou</Flex>
+      <Flex>
+        <Text size="lg" textAlign="center">
+          Pour travailler ou discuter
+        </Text>
+      </Flex>
     </MenuList>
   )
 }

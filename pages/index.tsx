@@ -172,8 +172,8 @@ export default function Home() {
           <FaReact color="#80D8F7" size="30px" />
           <SiTypescript color="#4178C0" size="30px" />
           <SiChakraui color="#4F9594" size="30px" />
-          <SiNextdotjs color={isDarkMode ? 'white' : 'white'} size="30px" />
-          <SiBlender color={isDarkMode ? 'white' : 'white'} size="30px" />
+          <SiNextdotjs color={isDarkMode ? '#2673EB' : '#2673EB'} size="30px" />
+          <SiBlender color={isDarkMode ? '#D07A2F' : '#D07A2F'} size="30px" />
           <SiAdobeillustrator color="#ecc649" size="30px" />
           <a href="https://www.instagram.com/meutidoes3d/" target="_blank">
             <AiOutlineInstagram color="white" size="35px" />
