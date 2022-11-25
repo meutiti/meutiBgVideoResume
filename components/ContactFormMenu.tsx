@@ -10,7 +10,7 @@ import { FC } from 'react'
 
 import ContactForm from './ContactForm'
 
-const ContactFormButton = ({ onOpen }) => {
+const ContactFormButton = ({ onOpen }: { onOpen: any }) => {
   console.log(
     '🚀 ~ file: ContactFormMenu.tsx ~ line 14 ~ ContactFormButton ~ onOpen',
     onOpen
