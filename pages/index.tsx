@@ -6,7 +6,7 @@ import Switch from 'react-switch'
 import { Button, Box, Flex, Heading, Text, Tooltip } from '@chakra-ui/react'
 import { MdDarkMode } from 'react-icons/md'
 import { BiSun } from 'react-icons/bi'
-import { FaReact } from 'react-icons/fa'
+import { FaReact, FaDotCircle, FaRegDotCircle } from 'react-icons/fa'
 import { TiHeartFullOutline } from 'react-icons/ti'
 import {
   SiTypescript,
@@ -21,19 +21,30 @@ import Link from 'next/link'
 import ContactFormMenu from '../components/ContactFormMenu'
 
 const VIDEOS_MAP = {
-  dark: './meuti-zzz_encoded.webm',
-  dark_mobile: './meuti-zzz-mobile_encoded.webm',
   light: './meuti-qhd_encoded.webm',
+  dark: './meuti-zzz_encoded.webm',
+}
+
+const VIDEOS_MAP_MOBILE = {
+  light: './meuti-qhd_encoded.webm',
+  dark: './meuti-zzz-mobile_encoded.webm',
 }
 
 export default function Home() {
-  const [isDarkMode, setIsDarkMode] = useState(false)
+  const [selectedVideoId, setSelectedVideoId] =
+    useState<keyof typeof VIDEOS_MAP>('light')
+  // const [isDarkMode, setIsDarkMode] = useState(false)
   const isMobile = useMountedBreakpoints({ base: true, md: false }, false)
-  const handleDarkMode = () => setIsDarkMode(!isDarkMode)
-  const videoSrc =
-    (isMobile && isDarkMode && VIDEOS_MAP.dark_mobile) ||
-    (isDarkMode && VIDEOS_MAP.dark) ||
-    VIDEOS_MAP.light
+
+  const handleDarkMode = () =>
+    selectedVideoId === 'light'
+      ? setSelectedVideoId('dark')
+      : setSelectedVideoId('light')
+  const isDarkMode = selectedVideoId === 'dark'
+
+  const videoSrc = isMobile
+    ? VIDEOS_MAP_MOBILE[selectedVideoId]
+    : VIDEOS_MAP[selectedVideoId]
 
   useEffect(() => {
     if (typeof window !== 'undefined') {
@@ -164,41 +175,48 @@ export default function Home() {
         </Flex>
         <Flex
           align="center"
+          w="100%"
+          justify="space-between"
           position="absolute"
           zIndex={10}
-          bottom="60px"
-          gap="4"
+          bottom="20px"
+          left="0"
+          padding={{ base: '1.8rem 2rem;', md: '40px 100px' }}
         >
-          <FaReact color="#80D8F7" size="30px" />
-          <SiTypescript color="#4178C0" size="30px" />
-          <SiChakraui color="#4F9594" size="30px" />
-          <SiNextdotjs color={isDarkMode ? '#2673EB' : '#2673EB'} size="30px" />
-          <SiBlender color={isDarkMode ? '#D07A2F' : '#D07A2F'} size="30px" />
-          <SiAdobeillustrator color="#ecc649" size="30px" />
-          <a href="https://www.instagram.com/meutidoes3d/" target="_blank">
-            <AiOutlineInstagram color="white" size="35px" />
-          </a>
+          <Flex align="center" gap="4">
+            <FaReact color="#80D8F7" size="30px" />
+            <SiTypescript color="#4178C0" size="30px" />
+            <SiChakraui color="#4F9594" size="30px" />
+            <SiNextdotjs
+              color={isDarkMode ? '#2673EB' : '#2673EB'}
+              size="30px"
+            />
+            <SiBlender color={isDarkMode ? '#D07A2F' : '#D07A2F'} size="30px" />
+            <SiAdobeillustrator color="#ecc649" size="30px" />
+            <a href="https://www.instagram.com/meutidoes3d/" target="_blank">
+              <AiOutlineInstagram color="white" size="35px" />
+            </a>
+          </Flex>
+          <Flex>
+            <Flex color="white">
+              {Object.entries(VIDEOS_MAP).map(([videoId], index) => (
+                <Flex align="center">
+                  <Flex width="14px" bgColor="white" height="1px" mx="0.5" />
+                  <Flex position="relative">
+                    <Button onClick={() => setSelectedVideoId(videoId as any)}>
+                      {videoId === selectedVideoId ? (
+                        <FaDotCircle size="13px" />
+                      ) : (
+                        <FaRegDotCircle size="13px" />
+                      )}
+                    </Button>
+                  </Flex>
+                </Flex>
+              ))}
+            </Flex>
+          </Flex>
         </Flex>
       </Flex>
-      {/* <div className="menu">
-        <ul>
-          <li>
-            <a href="#">Home</a>
-          </li>
-          <li>
-            <a href="#">News</a>
-          </li>
-          <li>
-            <a href="#">Destination</a>
-          </li>
-          <li>
-            <a href="#">Blog</a>
-          </li>
-          <li>
-            <a href="#">Contact</a>
-          </li>
-        </ul>
-      </div> */}
     </>
   )
 }
