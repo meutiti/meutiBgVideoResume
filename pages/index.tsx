@@ -92,7 +92,13 @@ export default function Home() {
             </Flex>
           </Flex>
         </header>
-        <video src={videoSrc} muted loop autoPlay></video>
+        <video
+          src={videoSrc}
+          muted
+          loop
+          autoPlay
+          // style={{ opacity: '0.2' }}
+        ></video>
 
         <Flex direction="column" position="relative">
           <Heading
@@ -108,6 +114,7 @@ export default function Home() {
             textShadow="0px 1px 0px #00000052"
             color="white"
             size={['sm', 'md']}
+            fontWeight="300"
           >
             Front-End Developer
           </Heading>
@@ -128,11 +135,13 @@ export default function Home() {
               color="white"
               width="fit-content"
               zIndex={1}
+              fontFamily="Nunito"
+              fontWeight="300"
             >
               React & React Native
             </Text>
           </Flex>
-          <Flex mt="8" direction="column">
+          {/* <Flex mt="8" direction="column">
             <Text
               size={['md', 'lg']}
               color="white"
@@ -171,7 +180,7 @@ export default function Home() {
               pour les boites early stage car il y a tout à construire avec
               l'envie de bien faire.
             </Text>
-          </Flex>
+          </Flex> */}
         </Flex>
         <Flex
           align="center"

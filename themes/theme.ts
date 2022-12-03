@@ -90,7 +90,7 @@ export const theme = extendTheme({
   },
   fonts: {
     heading: `'SecularOne', ${baseTheme.fonts.heading}`,
-    body: `'Abel', ${baseTheme.fonts.body}`,
+    body: `'Nunito', ${baseTheme.fonts.body}`,
   },
   // Thes font size should not be used
   // Use the component's sizes instead
