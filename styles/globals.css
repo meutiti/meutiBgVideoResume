@@ -51,8 +51,7 @@ header .logo {
   width: 100%;
   height: 100%;
   object-fit: cover;
-  opacity: 0.8;
-  transform: rotateY(180deg);
+  opacity: 0.85;
 }
 
 .text {
@@ -163,7 +162,7 @@ header .logo {
     width: 100%;
     height: 100vh;
     height: calc(var(--vh, 1vh) * 100);
-    padding: 100px;
+    padding: 40px;
     display: flex;
     justify-content: space-between;
     align-items: center;

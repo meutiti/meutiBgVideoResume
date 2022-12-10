@@ -8,6 +8,7 @@ import { MdDarkMode } from 'react-icons/md'
 import { BiSun } from 'react-icons/bi'
 import { FaReact, FaDotCircle, FaRegDotCircle } from 'react-icons/fa'
 import { TiHeartFullOutline } from 'react-icons/ti'
+import { GrSoundcloud } from 'react-icons/gr'
 import {
   SiTypescript,
   SiNextdotjs,
@@ -21,13 +22,13 @@ import Link from 'next/link'
 import ContactFormMenu from '../components/ContactFormMenu'
 
 const VIDEOS_MAP = {
-  light: './meuti-qhd_encoded.webm',
-  dark: './meuti-zzz_encoded.webm',
+  light: './chair.webm',
+  dark: './zzz.webm',
 }
 
 const VIDEOS_MAP_MOBILE = {
-  light: './meuti-qhd_encoded.webm',
-  dark: './meuti-zzz-mobile_encoded.webm',
+  light: './chair-mobile.webm',
+  dark: './zzz-mobile.webm',
 }
 
 export default function Home() {
@@ -92,13 +93,7 @@ export default function Home() {
             </Flex>
           </Flex>
         </header>
-        <video
-          src={videoSrc}
-          muted
-          loop
-          autoPlay
-          // style={{ opacity: '0.2' }}
-        ></video>
+        <video src={videoSrc} muted loop autoPlay></video>
 
         <Flex direction="column" position="relative">
           <Heading
@@ -141,11 +136,11 @@ export default function Home() {
               React & React Native
             </Text>
           </Flex>
-          {/* <Flex mt="8" direction="column">
+          <Flex mt="8" direction="column">
             <Text
               size={['md', 'lg']}
               color="white"
-              width="min(100% - 2rem, 800px)"
+              width={{ base: '100%', md: 'min(100% - 2rem, 800px)' }}
               textShadow="0px 1px 0px #00000052"
             >
               Touche à tout et féru de design avec une grosse passion pour la
@@ -180,9 +175,10 @@ export default function Home() {
               pour les boites early stage car il y a tout à construire avec
               l'envie de bien faire.
             </Text>
-          </Flex> */}
+          </Flex>
         </Flex>
         <Flex
+          direction={{ base: 'column', md: 'row' }}
           align="center"
           w="100%"
           justify="space-between"
@@ -190,6 +186,7 @@ export default function Home() {
           zIndex={10}
           bottom="20px"
           left="0"
+          gap={8}
           padding={{ base: '1.8rem 2rem;', md: '40px 100px' }}
         >
           <Flex align="center" gap="4">
@@ -205,12 +202,17 @@ export default function Home() {
             <a href="https://www.instagram.com/meutidoes3d/" target="_blank">
               <AiOutlineInstagram color="white" size="35px" />
             </a>
+            <a href="https://soundcloud.com/timothee-b/likes" target="_blank">
+              <GrSoundcloud color="white" size="35px" />
+            </a>
           </Flex>
           <Flex>
             <Flex color="white">
               {Object.entries(VIDEOS_MAP).map(([videoId], index) => (
                 <Flex align="center">
-                  <Flex width="14px" bgColor="white" height="1px" mx="0.5" />
+                  {index > 0 && (
+                    <Flex width="14px" bgColor="white" height="1px" mx="0.5" />
+                  )}
                   <Flex position="relative">
                     <Button onClick={() => setSelectedVideoId(videoId as any)}>
                       {videoId === selectedVideoId ? (
