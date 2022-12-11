@@ -101,6 +101,7 @@ export default function Home() {
             textShadow="0px 1px 0px #00000052"
             size={['md', 'xl']}
             color="white"
+            className="trackingText"
           >
             Timothée B.
           </Heading>
