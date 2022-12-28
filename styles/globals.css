@@ -38,6 +38,7 @@ header .logo {
   align-items: center;
   transition: 0.5s;
   z-index: 2;
+  background: white
 }
 
 .showcase.active {
@@ -50,8 +51,10 @@ header .logo {
   left: 0;
   width: 100%;
   height: 100%;
+  border-radius: 50px;
   object-fit: cover;
   opacity: 0.85;
+  border: solid 2rem #ffffff
 }
 
 .text {
