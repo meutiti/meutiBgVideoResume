@@ -107,7 +107,10 @@ export default function Home() {
           muted
           loop
           autoPlay
-          borderWidth={{ base: '10px', md: '2rem' }}
+          border={{
+            base: '10px solid transparent',
+            md: '2rem solid transparent',
+          }}
         />
 
         <Flex direction="column" position="relative">
