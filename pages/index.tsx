@@ -11,6 +11,7 @@ import {
   Text,
   Tooltip,
 } from '@chakra-ui/react'
+import NextImage from 'next/image'
 import { MdDarkMode } from 'react-icons/md'
 import { BiSun } from 'react-icons/bi'
 import { FaReact, FaDotCircle, FaRegDotCircle } from 'react-icons/fa'
@@ -71,7 +72,7 @@ export default function Home() {
       >
         <header>
           <Link href="/">
-            <Image
+            <NextImage
               src="/logo.png"
               alt="logo"
               width={isMobile ? 60 : 80}
