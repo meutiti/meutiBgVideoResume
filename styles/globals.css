@@ -54,7 +54,7 @@ header .logo {
   border-radius: 50px;
   object-fit: cover;
   opacity: 0.85;
-  border: solid 2rem #ffffff
+  border: solid 2rem
 }
 
 .text {

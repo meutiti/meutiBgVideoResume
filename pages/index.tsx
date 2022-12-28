@@ -3,7 +3,15 @@ import { useState, Fragment, useEffect } from 'react'
 import Image from 'next/image'
 import styles from '../styles/Home.module.css'
 import Switch from 'react-switch'
-import { Button, Box, Flex, Heading, Text, Tooltip } from '@chakra-ui/react'
+import {
+  Button,
+  Box,
+  Flex,
+  Heading,
+  Image,
+  Text,
+  Tooltip,
+} from '@chakra-ui/react'
 import { MdDarkMode } from 'react-icons/md'
 import { BiSun } from 'react-icons/bi'
 import { FaReact, FaDotCircle, FaRegDotCircle } from 'react-icons/fa'
@@ -60,7 +68,7 @@ export default function Home() {
       <Flex
         as="section"
         className="showcase"
-        bgColor={isDarkMode ? '#2c2c2c' : '#000'}
+        bgColor={isDarkMode ? '#000' : '#fff'}
       >
         <header>
           <Link href="/">
@@ -93,7 +101,14 @@ export default function Home() {
             </Flex>
           </Flex>
         </header>
-        <video src={videoSrc} muted loop autoPlay></video>
+        <Image
+          as="video"
+          src={videoSrc}
+          borderColor={isDarkMode ? '#000' : '#fff'}
+          muted
+          loop
+          autoPlay
+        />
 
         <Flex direction="column" position="relative">
           <Heading
