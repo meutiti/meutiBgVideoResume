@@ -67,7 +67,7 @@ export default function Home() {
       <Flex
         as="section"
         className="showcase"
-        bgColor={isDarkMode ? '#000' : '#fff'}
+        bgColor={isDarkMode ? '#fff' : '#000'}
       >
         <header>
           <Link href="/">
