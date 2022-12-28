@@ -100,14 +100,7 @@ export default function Home() {
             </Flex>
           </Flex>
         </header>
-        <Image
-          as="video"
-          src={videoSrc}
-          borderColor={isDarkMode ? '#000' : '#fff'}
-          muted
-          loop
-          autoPlay
-        />
+        <Image as="video" src={videoSrc} muted loop autoPlay />
 
         <Flex direction="column" position="relative">
           <Heading
