@@ -101,7 +101,14 @@ export default function Home() {
             </Flex>
           </Flex>
         </header>
-        <Image as="video" src={videoSrc} muted loop autoPlay />
+        <Image
+          as="video"
+          src={videoSrc}
+          muted
+          loop
+          autoPlay
+          borderWidth={{ base: '10px', md: '2rem' }}
+        />
 
         <Flex direction="column" position="relative">
           <Heading
